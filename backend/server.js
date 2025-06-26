@@ -11,6 +11,7 @@ const port = 3200;
 
 // 
 const adminEndpoint = require("./routes/adminroutes");
+const articleRoutes = require("./routes/articleRoutes");
 // const dataRoutes = require("./routes/DataRoutes");
 
 
@@ -37,6 +38,7 @@ app.use(
 // Routes
 // app.use("/api", dataRoutes);
 app.use("/api/admin", adminEndpoint);
+app.use("/api/articles", articleRoutes);
 
 // Start the server
 app.listen(port, () => {

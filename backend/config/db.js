@@ -1,23 +1,41 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
-  'portfolio_db', // Ganti dengan nama database Anda
-  'root',
-  '',
+  "portfolio_db", // Replace with your database name
+  "root",
+  "",
   {
-    host: 'localhost',
-    dialect: 'mysql',
-    // logging: process.env.NODE_ENV === "development" ? console.log : false,
-    // pool: {
-    //   max: 10,
-    //   min: 0,
-    //   acquire: 30000,
-    //   idle: 10000,
-    // },
+    host: "localhost",
+    dialect: "mysql",
   }
 );
 
-// Cek koneksi saat aplikasi start
+// Define the articles model dynamically
+sequelize.define("articles", {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  content: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.NOW,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.NOW,
+  },
+});
+
+// Test connection
 async function testConnection() {
   try {
     await sequelize.authenticate();
