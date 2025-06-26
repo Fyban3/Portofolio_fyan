@@ -11,7 +11,7 @@ class AdminController {
     });
   }
 
-  async creat(req, res) {
+  async create(req, res) {
     try {
       const { username, password } = req.body;
 
@@ -49,7 +49,7 @@ class AdminController {
     }
   }
 
-  async creatLogin(req, res) {
+  async createLogin(req, res) {
     const { username, password } = req.body;
 
     try {
@@ -94,7 +94,7 @@ class AdminController {
     }
   }
 
-  async creatLogout(req, res) {
+  async createLogout(req, res) {
     // Pastikan session ada sebelum destroy
     if (!req.session) {
       return res.status(400).json({ message: "No active session" });

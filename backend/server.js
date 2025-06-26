@@ -4,43 +4,44 @@ const path = require("path");
 const session = require("express-session");
 
 const sequelize = require("./config/db");
-sequelize.sync().then(() => console.log("Database Ready!"));
+sequelize.sync().then(() => console.log("Database Ready!"));
 
 const app = express();
 const port = 3200;
 
-// 
-const adminEndpoint = require("./routes/adminroutes");
-const articleRoutes = require("./routes/articleRoutes");
-// const dataRoutes = require("./routes/DataRoutes");
+// Configure CORS to allow requests from the frontend
+app.use(cors({
+  origin: "http://localhost:3200", // Frontend URL (ubah ke 3000 jika frontend Next.js)
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
+// Corrected imports with proper casing
+const adminEndpoint = require("./routes/AdminRoutes");
+const articleRoutes = require("./routes/ArticleRoutes");
+const dataRoutes = require("./routes/DataRoutes");
 
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // Middleware session
 app.use(
-    session({
-      secret: 'ajb^&%&8da09798',  // bisa diganti dengan string acak
-      resave: false,
-      saveUninitialized: true,
-      cookie: {
-        maxAge: 1000 * 60 * 60 // 1 jam
-      }
-    })
-  );
-
-
-// Serve static files
-// app.use(express.static(path.join(__dirname, "../")));
+  session({
+    secret: 'ajb^&%&8da09798',  // bisa diganti dengan string acak
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 // 1 jam
+    }
+  })
+);
 
 // Routes
-// app.use("/api", dataRoutes);
 app.use("/api/admin", adminEndpoint);
 app.use("/api/articles", articleRoutes);
+app.use("/api/data", dataRoutes);
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });

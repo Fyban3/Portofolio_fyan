@@ -1,8 +1,8 @@
 const Article = require("../model/ArticelModel");
 
 class ModelController {
-  constructor() {
-    this.model = Article; // 🔗 Hubungkan model ke controller
+  constructor(model = Article) {
+    this.model = model;
   }
 
   async create(req, res) {
