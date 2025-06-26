@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<section class="contact section" id="contact">
+    <h2 class="section__title">Contact Me</h2>
+    <span class="section__subtitle">Get in touch</span>
+    <div class="contact__container container grid">
+        <form action="http://localhost:3200/api/contact" method="POST" class="contact__form">
+            <input type="text" name="name" placeholder="Name" class="contact__input" required>
+            <input type="email" name="email" placeholder="Email" class="contact__input" required>
+            <textarea name="message" placeholder="Message" class="contact__input" required></textarea>
+            <button type="submit" class="button button--flex">Send Message</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

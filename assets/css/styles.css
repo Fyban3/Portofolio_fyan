@@ -303,7 +303,7 @@ img {
 }
 
 .home__blob-img {
-    width: 210px;
+    width: 170px;
 }
 
 .home__data {
@@ -510,39 +510,39 @@ img {
 }
 
 .skills__html {
-    width: 90%;
+    width: 50%;
 }
 
 .skills__css {
-    width: 80%;
+    width: 50%;
 }
 
 .skills__js {
-    width: 60%;
+    width: 30%;
 }
 
 .skills__react {
-    width: 65%;
+    width: 50%;
 }
 
 .skills__bootstrap {
-    width: 80%;
+    width: 70%;
 }
 
 .skills__php {
-    width: 80%;
+    width: 20%;
 }
 
 .skills__laravel {
-    width: 80%;
+    width: 30%;
 }
 
 .skills__codeigniter {
-    width: 70%;
+    width: 30%;
 }
 
 .skills__wordpress {
-    width: 70%;
+    width: 20%;
 }
 
 .skills__figma {
